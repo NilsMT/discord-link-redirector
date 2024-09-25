@@ -12,11 +12,9 @@ jobs:
         steps:
         - name: Checkout repository
           uses: actions/checkout@v2
-        
-        - name: Zip the addon
-          uses: montudor/action-zip@v1
-          with:
-            args: zip -qq -r addon.zip . -x ".git/*"
+
+        - name: Zip the addon contents without the folder
+          run: cd addon && zip -qq -r ../addon.zip . -x "../.git/*"
         
         - name: DEBUG | Unzip the addon
           uses: montudor/action-zip@v1
