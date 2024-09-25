@@ -1,0 +1,11 @@
+steps:
+  - uses: montudor/action-zip@v1
+    with:
+      args: zip -qq -r addon.zip addon
+  - uses: wdzeng/firefox-addon@v1
+    with:
+      addon-guid: "{ad0f5919-f6bc-48be-809d-11cbf0f9dad9}"
+      xpi-path: addon.zip
+      self-hosted: false
+      jwt-issuer: "user:18610402:311"
+      jwt-secret: "a0bfc55b1a0bd10700e7b735e90d8d80f6af49d91a9892854047af8df6a2a224"
