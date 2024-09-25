@@ -18,6 +18,9 @@ jobs:
           with:
             args: zip -qq -r addon.zip . -x ".git/*"
 
+        - name: List files recursively
+          run: ls -R
+
         - name: Upload Firefox Add-on
           uses: wdzeng/firefox-addon@v1
           with:
@@ -25,9 +28,4 @@ jobs:
             xpi-path: addon.zip
             self-hosted: false
             jwt-issuer: ${{ secrets.FIREFOX_JWT_ISSUER }}
-            jwt-secret: ${{ secrets.FIREFOX_JWT_SECRET }}
-    verifying:
-        runs-on: ubuntu-latest
-        steps:
-        - name: List files recursively
-          run: ls -R
+            jwt-secret: ${{ secrets.FIREFOX_JWT_SECRET }}      
