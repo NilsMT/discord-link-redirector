@@ -6,23 +6,28 @@ on:
       - main
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+    build:
+        runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      
-      - name: Zip the addon
-        uses: montudor/action-zip@v1
-        with:
+        steps:
+        - name: Checkout repository
+          uses: actions/checkout@v2
+        
+        - name: Zip the addon
+          uses: montudor/action-zip@v1
+          with:
             args: zip -qq -r addon.zip . -x ".git/*"
 
-      - name: Upload Firefox Add-on
-        uses: wdzeng/firefox-addon@v1
-        with:
-          addon-guid: "{ad0f5919-f6bc-48be-809d-11cbf0f9dad9}"
-          xpi-path: addon.zip
-          self-hosted: false
-          jwt-issuer: ${{ secrets.FIREFOX_JWT_ISSUER }}
-          jwt-secret: ${{ secrets.FIREFOX_JWT_SECRET }}
+        - name: Upload Firefox Add-on
+          uses: wdzeng/firefox-addon@v1
+          with:
+            addon-guid: "{ad0f5919-f6bc-48be-809d-11cbf0f9dad9}"
+            xpi-path: addon.zip
+            self-hosted: false
+            jwt-issuer: ${{ secrets.FIREFOX_JWT_ISSUER }}
+            jwt-secret: ${{ secrets.FIREFOX_JWT_SECRET }}
+    verifying:
+        runs-on: ubuntu-latest
+        steps:
+        - name: List files recursively
+          run: ls -R
