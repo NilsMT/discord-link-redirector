@@ -1,11 +1,11 @@
 {
-  "manifest_version": 2,
-  "name": "Discord Media Redirector",
-  "version": "1.1",
-  "description": "Redirects requests from media.discordapp.net to cdn.discordapp.com.",
-  "permissions": ["webRequest", "webRequestBlocking", "<all_urls>"],
-  "background": {
-    "scripts": ["background.js"],
-    "persistent": false
-  }
+    "manifest_version": 2,
+    "name": "Discord Media Redirector",
+    "version": "1.2",
+    "description": "Redirige les liens de médias Discord vers des sites de médias directement.",
+    "permissions": ["webRequest", "webRequestBlocking", "<all_urls>"],
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    }
 }

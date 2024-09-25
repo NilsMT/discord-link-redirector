@@ -1,10 +1,9 @@
 name: Deploy Firefox Add-on
 
-# Trigger the workflow on push to the default branch
 on:
   push:
     branches:
-      - main  # Replace with your default branch if different (e.g., "master")
+      - main
 
 jobs:
   build:
