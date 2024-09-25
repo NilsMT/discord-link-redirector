@@ -15,14 +15,6 @@ jobs:
 
         - name: Zip the addon contents without the folder
           run: cd addon && zip -qq -r ../addon.zip . -x "../.git/*"
-        
-        - name: DEBUG | Unzip the addon
-          uses: montudor/action-zip@v1
-          with:
-            args: unzip -qq addon.zip -d addonunzipped
-
-        - name: DEBUG | List files recursively
-          run: ls -R
 
         - name: Upload Firefox Add-on
           uses: wdzeng/firefox-addon@v1
